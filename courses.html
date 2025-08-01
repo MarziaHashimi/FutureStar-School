@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses</title>
+  <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+    <header class="navbar">
+     <div class="logo">🌟 FutureStar High School</div>
+    <nav>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="profile.html">Student Profile</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+    </nav>
+  </header>
+  <!-- Theme toggle button -->
+  <div class="theme-toggle-container">
+    <button id="theme-toggle" class="theme-toggle">🌙</button>
+  </div>
+
+  <main class="courses">
+    <h2>Our Courses</h2>
+    <div id="filter-buttons">
+      <button data-grade="10" onclick="filterCourses(10)">Grade 10</button>
+      <button data-grade="11" onclick="filterCourses(11)">Grade 11</button>
+    </div>
+    <ul id="courseList"></ul>
+
+    <div class="add-course">
+      <input type="text" id="newCourse" placeholder="Add New Course" >
+      <input type="number" id="newGrade" placeholder="Grade" >
+      <button onclick="addCourse()">Add Course</button>
+    </div>
+  </main>
+  <footer class="footer contact-footer">© 2025 FutureStar High Academy</footer>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,367 @@
+:root {
+  --primary-gradient: linear-gradient(135deg, #1c4d6e, #382f5b);
+  --button-gradient: linear-gradient(135deg, #ff6a00, #ee0979);
+  --text-light: #ffffff;
+  --text-dark: #222;
+  --bg-light: #f4f4f4;
+  --bg-dark: #011120;
+
+
+  --btn-bg: #032135;
+  --btn-text: white;
+  --btn-hover: #1e3d59;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  transition: background 0.3s, color 0.3s;
+
+    display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+
+.dark-mode {
+  background: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--primary-gradient);
+  color: white;
+  position: relative;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.nav-links a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+#greeting{
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+    color: #033073;
+   
+}
+
+/* Dark mode*/
+.dark-mode #greeting {
+color:  #e9e6e6;
+}
+#intro1{
+  color: #033073;
+  font-weight: bold;
+}
+.dark-mode #intro1{
+color:  #e9e6e6;
+}
+/* Removed theme-toggle from nav....*/
+.theme-toggle-container {
+  position: absolute;
+  top: 90px;
+  right: 20px;
+  z-index: 999;
+}
+
+.theme-toggle {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  padding: 0.6em 1.2em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s;
+}
+
+.theme-toggle:hover {
+  background-color: var(--btn-hover);
+}
+
+/* dark styles */
+.dark-mode .profile-card,
+.dark-mode .contact-form form,
+.dark-mode .add-course,
+.dark-mode #courseList li,
+.dark-mode .popup,
+.dark-mode input,
+.dark-mode textarea {
+ background-color: #112b45 !important;
+  color: #f0f0f0 !important;
+  border-color: #35516a;
+}
+
+/* Popup button in dark mode */
+.dark-mode .popup button {
+  background: var(--button-gradient);
+  color: white;
+}
+
+/* Theme toggle*/
+.theme-toggle {
+  background: none;
+  color: inherit;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0.3em;
+  padding-top: 1.5rem;
+  box-shadow: none;
+}
+
+.theme-toggle:hover {
+  background: none;
+  transform: scale(1.1);
+}
+
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+  padding: 10px;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+}
+
+/* Custom Popup */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: white;
+  color: black;
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  z-index: 1000;
+  display: none;
+  max-width: 90%;
+  text-align: center;
+  animation: popin 0.3s ease-out;
+}
+
+.popup.show {
+  display: block;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+@keyframes popin {
+  from { opacity: 0; transform: translate(-50%, -60%) scale(0.8); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.popup button {
+  margin-top: 1rem;
+  background: var(--button-gradient);
+  padding: 0.5rem 1rem;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+
+main {
+ padding: 1rem;
+ padding-bottom: 0;
+ margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.home-img {
+  max-width: 45%;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 0;
+}
+
+.intro {
+  max-width: 800px;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 0;
+}
+.footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: var(--primary-gradient);
+  color: white;
+  margin-top: 1rem;
+}
+.contact-footer{
+    margin-top:4.6rem;
+}
+.contact-footer1{
+    margin-top:4.8rem;
+}
+.profile-card, .contact-form form, .add-course, #courseList li {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 90%;
+  max-width: 500px;
+}
+.profile-card1{
+  margin-bottom: 0.1rem;
+  padding-bottom: 0;
+}
+
+.profile-card img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  margin-bottom:0;
+}
+
+button {
+  background: var(--button-gradient);
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  margin: 0.3rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+ul#courseList {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  width: 100%;
+  max-width: 1000px;
+}
+
+
+#filter-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 1rem;
+    background: var(--primary-gradient);
+    flex-direction: column;
+    width: 180px;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 1rem;
+  }
+  .home-img {
+  max-width: 60%;
+}
+
+  .profile-card, .contact-form form, .add-course, #courseList li {
+    padding: 1rem;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  footer {
+    padding: 15px;
+    font-size: 14px;
+  }
+}
+
