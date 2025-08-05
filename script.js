@@ -86,13 +86,22 @@ window.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-
-// Courses
-let courses = JSON.parse(localStorage.getItem("courses")) || [
-  { name: "Mathematics", grade: 11, details: "Advanced algebra and geometry" },
+// courses
+const defaultCourses = [
+  // Grade 10
   { name: "Biology", grade: 10, details: "Cell structure and life systems" },
-  { name: "Computer Science", grade: 11, details: "Web and programming basics" },
+  { name: "English", grade: 10, details: "Grammar, reading comprehension, and writing skills" },
+  { name: "Chemistry", grade: 10, details: "Atoms, molecules, and chemical reactions" },
+  { name: "History", grade: 10, details: "World history and civilizations" },
+  // Grade 11
+  { name: "Mathematics", grade: 11, details: "Advanced algebra and geometry" },
+  { name: "Computer Science", grade: 11, details: "HTML, CSS, and JavaScript basics" },
+  { name: "Physics", grade: 11, details: "Forces, motion, and energy principles" },
+  { name: "Geography", grade: 11, details: "Earth systems and human-environment interactions" }
 ];
+
+// default courses
+let courses = [...defaultCourses];
 
 let currentGrade = null;
 
@@ -113,14 +122,23 @@ function renderCourses(list = []) {
 function addCourse() {
   const name = document.getElementById("newCourse").value.trim();
   const grade = parseInt(document.getElementById("newGrade").value);
-  if (!name || isNaN(grade)) return showPopup("Please fill both fields correctly.");
+
+  if (!name || isNaN(grade)) {
+    return showPopup("⚠️ Please fill both fields correctly.");
+  }
+
+  if (grade !== 10 && grade !== 11) {
+    return showPopup("⚠️ We currently support only Grade 10 and Grade 11.");
+  }
 
   const newCourse = { name, grade, details: "No additional details." };
-  courses.push(newCourse);
-  localStorage.setItem("courses", JSON.stringify(courses));
+  courses.push(newCourse); 
 
   if (grade === currentGrade) {
     renderCourses(courses.filter(c => c.grade === currentGrade));
+    showPopup(`✅ Course added to Grade ${grade}.`);
+  } else {
+    showPopup(`✅ Course added to Grade ${grade}. Click 'Grade ${grade}' to view it.`);
   }
 
   document.getElementById("newCourse").value = "";
@@ -142,17 +160,22 @@ function showPopup(message) {
   popup.innerHTML = `
     <div class="popup-content">
       <p>${message}</p>
-      <button onclick="this.closest('.popup').remove()">Close</button>
+      <button onclick="this.closest('.popup').remove()">OK</button>
     </div>
   `;
   document.body.appendChild(popup);
 }
 
-// On load: hide all courses
+// Show 2 courses from each grade on page load
 window.addEventListener("DOMContentLoaded", () => {
-  renderCourses([]);
-});
+  const previewCourses = [];
 
+  const grade10 = defaultCourses.filter(c => c.grade === 10).slice(0, 2);
+  const grade11 = defaultCourses.filter(c => c.grade === 11).slice(0, 2);
+
+  previewCourses.push(...grade10, ...grade11);
+  renderCourses(previewCourses);
+});
 
 // Contact
 function sendMessage(e) {
@@ -213,7 +236,6 @@ function showPopup(message) {
   }
   popup.querySelector("#popupMessage").textContent = message;
   popup.classList.add("show");
-  setTimeout(() => popup.classList.remove("show"), 4000);
 }
 
 // Init courses if on courses page
