@@ -93,11 +93,15 @@ const defaultCourses = [
   { name: "English", grade: 10, details: "Grammar, reading comprehension, and writing skills" },
   { name: "Chemistry", grade: 10, details: "Atoms, molecules, and chemical reactions" },
   { name: "History", grade: 10, details: "World history and civilizations" },
+  { name: "Mathematics", grade: 10, details: "Algebra, geometry, and trigonometry" },
+  { name: "Computer Science", grade: 10, details: "Basic programming concepts and web development" },
   // Grade 11
   { name: "Mathematics", grade: 11, details: "Advanced algebra and geometry" },
   { name: "Computer Science", grade: 11, details: "HTML, CSS, and JavaScript basics" },
   { name: "Physics", grade: 11, details: "Forces, motion, and energy principles" },
-  { name: "Geography", grade: 11, details: "Earth systems and human-environment interactions" }
+  { name: "Geography", grade: 11, details: "Earth systems and human-environment interactions" },
+  { name: "Literature", grade: 11, details: "Classic and modern texts with critical analysis" },
+  { name: "Pashto", grade: 11, details: "Language structure, poetry, and cultural expression" },
 ];
 
 // default courses
@@ -170,8 +174,8 @@ function showPopup(message) {
 window.addEventListener("DOMContentLoaded", () => {
   const previewCourses = [];
 
-  const grade10 = defaultCourses.filter(c => c.grade === 10).slice(0, 2);
-  const grade11 = defaultCourses.filter(c => c.grade === 11).slice(0, 2);
+  const grade10 = defaultCourses.filter(c => c.grade === 10).slice(0, 3);
+  const grade11 = defaultCourses.filter(c => c.grade === 11).slice(0, 3);
 
   previewCourses.push(...grade10, ...grade11);
   renderCourses(previewCourses);
@@ -244,3 +248,4 @@ document.addEventListener("DOMContentLoaded", () => {
     renderCourses();
   }
 });
+
