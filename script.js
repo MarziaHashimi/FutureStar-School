@@ -95,6 +95,8 @@ const defaultCourses = [
   { name: "History", grade: 10, details: "World history and civilizations" },
   { name: "Mathematics", grade: 10, details: "Algebra, geometry, and trigonometry" },
   { name: "Computer Science", grade: 10, details: "Basic programming concepts and web development" },
+  { name: "Physics", grade: 10, details: "Motion, forces, energy, and basic laws of physics" },
+  { name: "Art", grade: 10, details: "Visual expression, techniques, and art history" },
   // Grade 11
   { name: "Mathematics", grade: 11, details: "Advanced algebra and geometry" },
   { name: "Computer Science", grade: 11, details: "HTML, CSS, and JavaScript basics" },
@@ -102,6 +104,8 @@ const defaultCourses = [
   { name: "Geography", grade: 11, details: "Earth systems and human-environment interactions" },
   { name: "Literature", grade: 11, details: "Classic and modern texts with critical analysis" },
   { name: "Pashto", grade: 11, details: "Language structure, poetry, and cultural expression" },
+  { name: "Biology", grade: 11, details: "Genetics, evolution, and ecological systems" },
+  { name: "Economics", grade: 11, details: "Microeconomics, markets, and financial literacy" },
 ];
 
 // default courses
@@ -248,4 +252,5 @@ document.addEventListener("DOMContentLoaded", () => {
     renderCourses();
   }
 });
+
 
